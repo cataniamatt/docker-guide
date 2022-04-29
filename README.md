@@ -95,7 +95,7 @@ __pycache__/
 ```
 
 #### requirements.txt
-This is a text file that contains a list of all packages used by the project. This text file can be created by executing the command 'pip freeze' and saving the standard output in a text file called 'requirements.txt'.
+This is a text file that contains a list of all packages used by the project. This text file can be created by executing the command 'pip freeze' and saving the standard output in a text file called 'requirements.txt'. This command can be used within a virtual environment or on a Linux host where the web app exists.
 ```
 pip freeze > requirements.txt
 ```
