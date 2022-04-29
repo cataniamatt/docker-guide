@@ -143,3 +143,42 @@ If the image build is successful and there are no errors within the code, a cont
 docker run -dp 80:5000 docker-test
 ```
 The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 5000 on the container was mapped to port 80 on the local machine.
+
+## View running containers
+To view all containers that are running and also those that have stopped issue:
+```
+docker ps -a
+```
+This will return a list of all containers and the following information about each container:
+* Container ID
+* Container image
+* Command used to initialise the app
+* Creation date
+* Status
+* Port mappings
+* Container name
+
+```
+CONTAINER ID   IMAGE         COMMAND           CREATED          STATUS          PORTS                    NAMES
+f3e8bad13d01   docker-test   "python run.py"   19 minutes ago   Up 19 minutes   0.0.0.0:443->5000/tcp    compassionate_driscoll
+368204a31392   docker-test   "python run.py"   19 minutes ago   Up 19 minutes   0.0.0.0:80->5000/tcp     busy_saha
+1d7c9be226b3   docker-test   "python run.py"   20 minutes ago   Up 20 minutes   0.0.0.0:5000->5000/tcp   blissful_einstein
+```
+
+## Stopping a running container
+To stop a container from running, the container name is required. Unless a name is defined when initialising the container, Docker assings it a random name. To get the container name, list all the containers using 'docker ps -a'. Then run the following command:
+```
+docker stop container_name
+```
+
+## Deleting a container
+A container cannot be deleted if it is running, so it must first be stopped using the 'docker stop' command. After it is stopped it can be removed by using:
+```
+docker rm container_name
+```
+
+## Deleting a Docker image
+An image can only be deleted if no container is using it, so any container must be stopped and deleted to delete the image. Once this is done, issue the following command to delete the image:
+```
+docker rmi image_name
+```
