@@ -30,7 +30,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-# configure the container to run in an executed manner
 ENTRYPOINT [ "python" ]
 
 CMD ["run.py" ]
@@ -49,14 +48,14 @@ Next Docker will change the working directory to the directory in which all of t
 WORKDIR /var/www/docker-test
 ```
 
-After the project directory is created, the 'requirements.txt' file will be copied to the working directory and then used to install all of the dependencies that are listed in it.
+After the project directory is created, the 'requirements.txt' file will be copied to the working directory and then used to install all of the packages that are listed in it.
 ```
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 ```
 
-Once all dependencies are installed, Docker will copy all of the project files inside the root directory on the machine into the working directory of the image.
+Once all packages are installed, Docker will copy all of the project files inside the root directory on the machine into the working directory of the image.
 ```
 COPY . .
 ```
@@ -69,10 +68,13 @@ CMD ["run.py" ]
 ```
 
 #### .dockerignore
-Outlines which files should be ignored when building the image.
+This is a file which outlines which files and/or directory should be ignored when building the image. This is similar to a '.gitignore' file.
 
 #### requirements.txt
-List of all project dependencies.
+This is a text file that contains a list of all packages used by the project. This text file can be created by executing the command 'pip freeze' and saving the standard output in a text file called 'requirements.txt'.
+```
+pip freeze > requirements.txt
+```
 
 ### Building the custom image
 After Docker is installed and all of the prerequisite files have been created, the Docker image can be created by using the following command in the root directory of the project:
