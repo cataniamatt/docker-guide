@@ -1,5 +1,8 @@
-# Testing Docker and Docker containers
-In this project a Docker image will be built and then used to create multiple containers of a simple Flask web app.
+# Docker Step-by-Step
+This repository outlines how Docker can be used to turn a simple web app into a Docker image. This image can then be used to initialise multiple containers that run the web app.
+
+![Docker logo](https://github.com/cataniamatt/docker-test/blob/main/docker.png)
+
 
 ## Building a Docker image
 This section will cover all the commands and prerequisites required to build a custom Docker image from scratch.
