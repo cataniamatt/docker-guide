@@ -1,5 +1,5 @@
 # Testing Docker and Docker containers
-In this project a Docker image will be built and used to create multiple containers of a simple Flask web app.
+In this project a Docker image will be built and then used to create multiple containers of a simple Flask web app.
 
 ## Python virtual environment
 Go to the project directory and execute the following command to create a Python virtual environment:
