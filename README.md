@@ -28,7 +28,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-# copy every content from the local file to the image
 COPY . .
 
 # configure the container to run in an executed manner
@@ -55,6 +54,18 @@ After the project directory is created, the 'requirements.txt' file will be copi
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
+```
+
+Once all dependencies are installed, Docker will copy all of the project files inside the root directory on the machine into the working directory of the image.
+```
+COPY . .
+```
+
+At this stage, the programm can be initialised with the required commands using 'ENTRYPOINT' and 'CMD'. In this case, the project is a Flask web app that starts executing using the command 'python run.py'. This starts Flask on port 5000.
+```
+ENTRYPOINT [ "python" ]
+
+CMD ["run.py" ]
 ```
 
 #### .dockerignore
