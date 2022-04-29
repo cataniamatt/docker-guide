@@ -161,7 +161,6 @@ An image can only be deleted if no container is using it, so any container must 
 ```
 docker rmi image_name
 ```
-The '-f' tag can be used to force delete an image that is being used by a running container.
 
 ## Running a container
 If the image build is successful and there are no errors within the code, a container can be initialised using it. This can be done by executing the following command:
