@@ -20,16 +20,12 @@ If the machine is based on MacOS or Windows, Docker Desktop should be used. Dock
 ```
 # syntax=docker/dockerfile:1
 
-# start by pulling the python image
 FROM python
 
-# switch working directory
 WORKDIR /var/www/test
 
-# copy the requirements file into the image
 COPY requirements.txt requirements.txt
 
-# install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
 
 # copy every content from the local file to the image
@@ -42,12 +38,24 @@ CMD ["run.py" ]
 ```
 The Dockerfile contains several commands that dictate how the Docker image should be built. 
 
-The first step to create a custom Docker image is always to declare which Docker image will be used to create the custom image. Different images for various operating system and technologies can be found on Docker Hub. If the image declared does not exist on the local machine, it will be downloaded from Docker Hub. In this sample text above, the image will be built using the latest version of Python available on Docker Hub.
+The first step to create a custom Docker image is always to declare which Docker image will be used to create the custom image. Different images for various operating system and technologies can be found on Docker Hub. If the image declared does not exist on the local machine, it will be downloaded from Docker Hub. 
+
+In this sample text above, the image will be built using the latest version of Python available on Docker Hub.
 ```
 FROM python
 ```
 
-In this
+Next Docker will change the working directory to the directory in which all of the project files will be copied to and the remaining commands will be executed. If the directory specified does not exist, it will be created. In this case a directory called 'docker-test' will be created in the '/var/www' directory.
+```
+WORKDIR /var/www/docker-test
+```
+
+After the project directory is created, the 'requirements.txt' file will be copied to the working directory and then used to install all of the dependencies that are listed in it.
+```
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+```
 
 #### .dockerignore
 Outlines which files should be ignored when building the image.
