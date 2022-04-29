@@ -10,7 +10,7 @@ This section will cover all the commands and prerequisites required to build a c
 * requirements.txt
 
 #### Docker
-Docker can be installed on a Linux machine using:
+Docker can be installed on a Linux machine by using:
 ```
 sudo apt install docker.io
 ```
@@ -136,3 +136,10 @@ Docker will then proceed to build the image:
  => => writing image sha256:c88e32ba2b2e724a395accd41ef00e9c8938a74a6728327fb5f91353cccc4263                     0.0s
  => => naming to docker.io/library/docker-test                                                                   0.0s
 ```
+
+## Running the custom Docker image
+If the image build is successful and there are no errors within the code, a container can be initialised using it. This can be done by executing the following command:
+```
+docker run -dp 80:5000 docker-test
+```
+The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 80 was mapped to port 5000 that is being used by Flask.
