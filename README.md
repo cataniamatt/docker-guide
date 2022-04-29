@@ -5,9 +5,9 @@ In this project a Docker image will be built and then used to create multiple co
 This section will cover all the commands and prerequisites required to build a custom Docker image from scratch.
 ### Prerequisites
 * Docker installed on the local machine
-* Dockerfile : A file with commands on how Docker should build the image. 
-* .dockerignore : A file which outlines which files should be ignored when building the image.
-* requirements.txt : A text file that lists of all project dependencies
+* Dockerfile - Commands how the Docker image will be built.
+* .dockerignore - Outlines which files should be ignored when building the image.
+* requirements.txt - Lists of all project dependencies.
 
 ```
 python3 -m venv venv
