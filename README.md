@@ -201,3 +201,50 @@ A container cannot be deleted if it is running, so it must first be stopped usin
 ```
 docker rm container_name
 ```
+
+## Docker compose
+Instead of executing a 'docker run' command for each container that needs to be initialised, a 'docker-compose.yml' file can be used to create multiple containers. In this case the 'docker-compose.yml' file is very simple, it initiates 3 containers of the same web app, however, if used correctly, it can be very powerful. The Docker Compose documentation can be found [here](https://docs.docker.com/compose/).
+```
+version: '3'
+
+services:
+  website-1:
+    build: .
+    ports:
+      - 5000:5000
+    image: docker-test
+  website-2:
+    build: .
+    ports:
+      - 80:5000
+    image: docker-test
+  website-3:
+    build: .
+    ports:
+      - 443:5000
+    image: docker-test
+```
+
+Once the 'docker-compose.yml' file is created and all services are configured as required, the following command can be used to launch all containers:
+```
+docker-compose up -d
+```
+The '-d' tag is used to run all the containers in the detached mode, meaning in the background.
+
+```
+Creating network "docker-guide_default" with the default driver
+Creating docker-guide_website-1_1 ... done
+Creating docker-guide_website-3_1 ... done
+Creating docker-guide_website-2_1 ... done
+```
+```
+CONTAINER ID   IMAGE         COMMAND           CREATED         STATUS         PORTS                    NAMES
+378d58689005   docker-test   "python run.py"   5 minutes ago   Up 5 minutes   0.0.0.0:5000->5000/tcp   docker-guide_website-1_1
+a748f49a7b5a   docker-test   "python run.py"   5 minutes ago   Up 5 minutes   0.0.0.0:443->5000/tcp    docker-guide_website-3_1
+4a00e0dcba7f   docker-test   "python run.py"   5 minutes ago   Up 5 minutes   0.0.0.0:80->5000/tcp     docker-guide_website-2_1
+```
+
+The containers can then be stopped individually as mentioned previously or they can all be stopped together by using the command:
+```
+docker-compose down
+```
