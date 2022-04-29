@@ -9,6 +9,7 @@ This section will cover all the commands and prerequisites required to build a c
 * .dockerignore - Outlines which files should be ignored when building the image.
 * requirements.txt - Lists of all project dependencies.
 
+### Building the custom image
 After Docker is installed and all of the prerequisite files have been created, the Docker image can be created by using the following command in the root directory of the project:
 ```
 docker build -t docker-test .
