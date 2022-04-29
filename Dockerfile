@@ -4,7 +4,7 @@
 FROM python
 
 # switch working directory
-WORKDIR /var/www/test
+WORKDIR /var/www/docker-test
 
 # copy the requirements file into the image
 COPY requirements.txt requirements.txt
