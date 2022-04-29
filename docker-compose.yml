@@ -2,17 +2,14 @@ version: '3'
 
 services:
   website-1:
-    build: .
     ports:
       - 5000:5000
     image: docker-test
   website-2:
-    build: .
     ports:
       - 80:5000
     image: docker-test
   website-3:
-    build: .
     ports:
       - 443:5000
     image: docker-test
