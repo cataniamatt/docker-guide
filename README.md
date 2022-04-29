@@ -9,16 +9,8 @@ This section will cover all the commands and prerequisites required to build a c
 * .dockerignore - Outlines which files should be ignored when building the image.
 * requirements.txt - Lists of all project dependencies.
 
+After Docker is installed and all of the prerequisite files have been created, the Docker image can be created by using the following command in the root directory of the project:
 ```
-python3 -m venv venv
+docker build -t docker-test .
 ```
-Once the virtual environment is created, activate it using:
-```
-source venv/bin/activate
-```
-
-## Project dependencies
-All the project dependencies can be installed on the host machine or in the virtual environment using:
-```
-pip install -r requirements.txt
-```
+The '-t' tag is used to create a custom name for the image, in this case the name chosen is docker-test.
