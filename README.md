@@ -7,7 +7,20 @@ This section will cover all the commands and prerequisites required to build a c
 * Docker installed on the local machine
 * Dockerfile - Commands how the Docker image will be built.
 * .dockerignore - Outlines which files should be ignored when building the image.
-* requirements.txt - Lists of all project dependencies.
+* requirements.txt - List of all project dependencies.
+
+#### Docker
+Docker can be installed on a Linux machine using:
+```
+sudo apt install docker.io
+```
+If the machine is based on MacOS or Windows, Docker Desktop can be installed from the official Docker website [here](https://docs.docker.com/desktop/).
+
+#### Dockerfile
+
+#### .dockerignore
+
+#### requirements.txt
 
 ### Building the custom image
 After Docker is installed and all of the prerequisite files have been created, the Docker image can be created by using the following command in the root directory of the project:
