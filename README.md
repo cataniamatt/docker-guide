@@ -140,6 +140,6 @@ Docker will then proceed to build the image:
 ## Running the custom Docker image
 If the image build is successful and there are no errors within the code, a container can be initialised using it. This can be done by executing the following command:
 ```
-docker run -dp 80:5000 docker-test
+docker run -dp 5000:80 docker-test
 ```
-The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 80 was mapped to port 5000 that is being used by Flask.
+The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 5000 on the container was mapped to port 80 on the local machine.
