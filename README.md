@@ -136,11 +136,34 @@ Docker will then proceed to build the image:
  => => writing image sha256:c88e32ba2b2e724a395accd41ef00e9c8938a74a6728327fb5f91353cccc4263                     0.0s
  => => naming to docker.io/library/docker-test                                                                   0.0s
 ```
+## View all Docker images
+To view all Docker images on the machine use the following command:
+```
+docker images -a
+```
+This will return a list of all images and the following information about each image:
+* Repository and image name
+* Version tag
+* Image ID
+* Creation date
+* Size
 
-## Running the custom Docker image
+```
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+docker-test   latest    c511725df600   28 minutes ago   935MB
+```
+
+## Deleting a Docker image
+An image can only be deleted if no container is using it, so any container must be stopped and deleted to delete the image. Once this is done, issue the following command to delete the image:
+```
+docker rmi image_name
+```
+The '-f' tag can be used to force delete an image that is being used by a running container.
+
+## Running a container
 If the image build is successful and there are no errors within the code, a container can be initialised using it. This can be done by executing the following command:
 ```
-docker run -dp 80:5000 docker-test
+docker run -dp 80:5000 image_name
 ```
 The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 5000 on the container was mapped to port 80 on the local machine.
 
@@ -175,10 +198,4 @@ docker stop container_name
 A container cannot be deleted if it is running, so it must first be stopped using the 'docker stop' command. After it is stopped it can be removed by using:
 ```
 docker rm container_name
-```
-
-## Deleting a Docker image
-An image can only be deleted if no container is using it, so any container must be stopped and deleted to delete the image. Once this is done, issue the following command to delete the image:
-```
-docker rmi image_name
 ```
