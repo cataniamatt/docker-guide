@@ -195,7 +195,7 @@ docker stop container_name
 ```
 
 ## Deleting a container
-A container cannot be deleted if it is running, so it must first be stopped using the 'docker stop' command. After it is stopped it can be removed by using:
+A container cannot be deleted if it is running, so it must first be stopped using the 'docker stop' command. After it is stopped, it can be removed by using:
 ```
 docker rm container_name
 ```
