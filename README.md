@@ -17,7 +17,6 @@ sudo apt install docker.io
 If the machine is based on MacOS or Windows, Docker Desktop should be used. Docker Desktop can be installed from the Docker's official website [here](https://docs.docker.com/desktop/).
 
 #### Dockerfile
-Commands how the Docker image will be built.
 ```
 # syntax=docker/dockerfile:1
 
@@ -41,6 +40,15 @@ ENTRYPOINT [ "python" ]
 
 CMD ["run.py" ]
 ```
+The Dockerfile contains several commands that dictate how the Docker image should be built. 
+
+The first step to create a custom Docker image is always to declare which Docker image will be used to create the custom image. Different images for various operating system and technologies can be found on Docker Hub. If the image declared does not exist on the local machine, it will be downloaded from Docker Hub. In this sample text above, the image will be built using the latest version of Python available on Docker Hub.
+```
+FROM python
+```
+
+In this
+
 #### .dockerignore
 Outlines which files should be ignored when building the image.
 
