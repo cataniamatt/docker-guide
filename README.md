@@ -68,7 +68,28 @@ CMD ["run.py" ]
 ```
 
 #### .dockerignore
-This is a file which outlines which files and/or directory should be ignored when building the image. This is similar to a '.gitignore' file.
+This is a file which outlines which files and/or directory should be ignored when building the image. This is similar to a '.gitignore' file. 
+```
+# Git / Github
+.git
+.gitignore
+README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
+.docker
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+*.py[cod]
+*/*.py[cod]
+*/*/*.py[cod]
+*/*/*/*.py[cod]
+```
 
 #### requirements.txt
 This is a text file that contains a list of all packages used by the project. This text file can be created by executing the command 'pip freeze' and saving the standard output in a text file called 'requirements.txt'.
