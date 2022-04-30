@@ -244,7 +244,16 @@ a748f49a7b5a   docker-test   "python run.py"   5 minutes ago   Up 5 minutes   0.
 4a00e0dcba7f   docker-test   "python run.py"   5 minutes ago   Up 5 minutes   0.0.0.0:80->5000/tcp     docker-guide_website-2_1
 ```
 
-The containers can then be stopped individually as mentioned previously or they can all be stopped together by using the command:
+The containers can then be stopped or started individually as mentioned previously or they can all be stopped or started together by using the command:
+```
+docker-compose stop
+```
+or
+```
+docker-compose start
+```
+
+The containers can be terminated by using the command:
 ```
 docker-compose down
 ```
