@@ -253,7 +253,7 @@ or
 docker-compose start
 ```
 
-The containers can be terminated by using the command:
+The containers can also be terminated by using the command:
 ```
 docker-compose down
 ```
