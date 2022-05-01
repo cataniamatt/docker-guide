@@ -165,9 +165,9 @@ docker rmi image_name
 ## Running a container
 If the image build is successful and there are no errors within the code, a container can be initialised using it. This can be done by executing the following command:
 ```
-docker run -dp 80:5000 image_name
+docker run -d --name container_name -p 80:5000 image_name
 ```
-The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. In this case, port 5000 on the container was mapped to port 80 on the local machine.
+The '-d' tag is used to run the container in the detached mode, meaning in the background. The '-p' tag is used to map a port on the local machine to a port on the container. The '--name' tag is used to set the container name. In this case, port 5000 on the container was mapped to port 80 on the local machine.
 
 ## View running containers
 To view all containers that are running and also those that have stopped issue:
